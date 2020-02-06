@@ -87,25 +87,118 @@
 
 ###### 4、父类的静态方法能否被子类重写
 
-> 不能：[答案参考](https://www.jianshu.com/p/15e21428d884)
+> 不能：
+>
+> 1、静态方法和属性是属于类的，调用的时候直接通过类名.方法名完成对，不需要继承机制及可以调用。如果子类里面定义了静态方法和属性，那么这时候父类的静态方法或属性称之为"隐藏"。如果你想要调用父类的静态方法和属性，直接通过父类名.方法或变量名完成，至于是否继承一说，子类是有继承静态方法和属性，但是跟实例方法和属性不太一样，存在"隐藏"的这种情况。
+>
+> 2、重写指的是根据运行时对象的类型来决定调用哪个方法，而不是根据编译时的类型。
+>
+> [答案参考](https://www.jianshu.com/p/15e21428d884)
 
 ###### 5、方法重载和方法重写区别
 
 > [答案](https://www.nowcoder.com/questionTerminal/830d1dbe2d1a4481ae4f753d77d2e89a?orderByHotValue=1&page=1&onlyReference=false)
 
-### 二、基础相关
+### 二、基础知识相关
 
 1、java中==和equals和hashCode的区别  
 
-> [答案1](https://blog.csdn.net/tiantiandjava/article/details/46988461)
+> [参考答案1](https://blog.csdn.net/tiantiandjava/article/details/46988461)
 >
-> [>答案2](https://blog.csdn.net/changrj6/article/details/100043822)
+> [答案2：为啥重写hashCode方法](https://blog.csdn.net/changrj6/article/details/100043822)
 
-###### 2、
+###### 2、int、char、long各占多少字节数
+
+> 常见类型所占字节：
+>
+> byte 1
+>
+> short 2
+>
+> char 2
+>
+> int    4
+>
+> float  4
+>
+> long  8
+>
+> double 8
+>
+> [boolean](https://www.cnblogs.com/wangtianze/p/6690665.html?utm_source=itdadao&utm_medium=referral)
+
+###### 3、int与integer的区别
+
+> 1、int 是基本类型，直接存数值，而integer是对象，用一个引用指向这个对象
+>
+> 2、int类型的变量初始为0.而Integer类的变量则初始化为null.
+>
+> 3、int和Integer不能够互用，因为他们两种不同的数据类型（集合存数据时可以看出）
+>
+> 4、如果我们定义一个int类型的数，只是用来进行一些加减乘除的运算or作为参数进行传递，那么就可以直接声明为int基本数据类型，但如果要像
+>
+> 对象一样来进行处理，那么就要用Integer来声明一个对象，因为java是面向对象的语言，因此当声明为对象时能够提供很多对象间转换的方式，与一些常用
+>
+> 的方法。自认为java作为一们面向对象的语言，我们在声明一个变量时最好声明为对象格式，这样更有利于你对面向对象的理解
+>
+> [参考答案](https://www.cnblogs.com/shenliang123/archive/2011/10/27/2226903.html)
+
+###### 4、String、StringBuffer、StringBuilder区别
+
+> 1、String是final类，底层final char数组实现。不可变字符串序列。String的值是不可变的，这就导致每次对String的操作都会生成新的String对象，这样不仅效率低下，而且大量浪费有限的内存空间。
+>
+> 2、StringBuffer ：可变字符串序列，当对字符串修改时使用，线程安全，由于加了锁，导致效率低。
+>
+> 3、StringBuild：可变字符串序列，效率高，不能保证线程安全。
+>
+> ps：总结：StringBuffer 和StringBuild的区别就是StringBuffer 的一些核心方法上加了锁。如果要操作少量的数据用 String；多线程操作字符串缓冲区下操作大量数据 StringBuffer；单线程操作字符串缓冲区下操作大量数据 StringBuilder。
 
 
 
-###### 
+###### 5、泛型中extends和super的区别
+
+> [参考1](https://itimetraveler.github.io/2016/12/27/%E3%80%90Java%E3%80%91%E6%B3%9B%E5%9E%8B%E4%B8%AD%20extends%20%E5%92%8C%20super%20%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/)
+>
+> [参考2：本章节的通配符介绍](https://blog.csdn.net/qq_38350635/article/details/96610916)
+
+###### 6、进程和线程的区别
+
+> [答案](https://blog.csdn.net/kuangsonghan/article/details/80674777)
+
+###### 7、final，finally，finalize的区别
+
+> [答案](https://www.cnblogs.com/ktao/p/8586966.html)
+
+###### 8、序列化
+
+> [答案参考](https://blog.csdn.net/qq_38350635/article/details/88925390)
+
+###### 9、闭包和局部内部类的区别
+
+> [答案](https://blog.csdn.net/github_37130188/article/details/94589869)
+>
+> [ps:闭包参考groovy中的闭包概念理解](https://blog.csdn.net/qq_38350635/article/details/102465216)
+
+###### 10、string 转换成 integer的方式及原理
+
+>[答案](https://www.jianshu.com/p/9eebb4f2ccb1)
 
 
 
+### 三、基础深入（优点难度的）
+
+待续
+
+### 四、java数据结构相关
+
+待续
+
+### 五、线程相关
+
+
+
+###### 待续
+
+
+
+ 
