@@ -212,7 +212,7 @@
 
 ###### 2、常见编码方式
 
-> [答案]1(https://www.cnblogs.com/mlan/p/7823375.html)
+> [答案](https://www.cnblogs.com/mlan/p/7823375.html)
 >
 > [答案2](https://blog.csdn.net/github_37130188/article/details/95110315)
 
@@ -250,7 +250,7 @@
 
 
 
-###### 待续
+###### 未完待续待续。。
 
 
 
