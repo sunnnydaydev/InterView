@@ -43,7 +43,7 @@
 >
 > 2、可扩充性（extensibility）。多态对代码具有可扩充性。增加新的子类不影响已存在类的多态性、继承性，以及其他特性的运行和操作。实际上新加子类更容易获得多态功能。例如，在实现了圆锥、半圆锥以及半球体的多态基础上，很容易增添球体类的多态性。
 >
-> 3、接口性（interface-ability）。多态是超类通过方法签名，向子类提供了一个共同接口，由子类来完善或者覆盖它而实现的。如图8.3 所示。图中超类Shape规定了两个实现多态的接口方法，computeArea()以及computeVolume()。子类，如Circle和Sphere为了实现多态，完善或者覆盖这两个接口方法
+> 3、接口性（interface-ability）。多态是超类通过方法签名，向子类提供了一个共同接口，由子类来完善或者覆盖它而实现的。
 >
 > 4、活性（flexibility）。它在应用中体现了灵活多样的操作，提高了使用效率。
 >
@@ -61,7 +61,7 @@
 >
 >3、构造器
 >
->抽象类可以有构造器，接口不能有构造器。
+>抽象类可以有构造器，接口不能有构造器。（构造器就是为了初始化成员变量的）
 >
 >4、接口中不能定义构造器的理由：
 >
@@ -93,7 +93,7 @@
 
 > 不能：
 >
-> 1、静态方法和属性是属于类的，调用的时候直接通过类名.方法名完成对，不需要继承机制及可以调用。如果子类里面定义了静态方法和属性，那么这时候父类的静态方法或属性称之为"隐藏"。如果你想要调用父类的静态方法和属性，直接通过父类名.方法或变量名完成，至于是否继承一说，子类是有继承静态方法和属性，但是跟实例方法和属性不太一样，存在"隐藏"的这种情况。
+> 1、静态方法和属性是属于类的，调用的时候直接通过类名.方法名完成对，不需要继承机制及可以调用。如果子类里面定义了静态方法和属性，那么这时候父类的静态方法或属性称之为"隐藏"（即使父类的静态成员和方法不是private的，子类中也有一样的静态方法，父类对象引用也调用不了，发生不了多态。所以父类的静态方法对子类来说是不能重写的这叫做隐藏）。如果你想要调用父类的静态方法和属性，直接通过父类名.方法或变量名完成，至于是否继承一说，子类是有继承静态方法和属性，但是跟实例方法和属性不太一样，存在"隐藏"的这种情况。
 >
 > 2、重写指的是根据运行时对象的类型来决定调用哪个方法，而不是根据编译时的类型。
 >
@@ -165,6 +165,8 @@
 
 ###### 6、进程和线程的区别
 
+> 进程是操作系统资源分配的基本单位，而线程是任务调度和执行的基本单位。进程包括线程。
+>
 > [答案](https://blog.csdn.net/kuangsonghan/article/details/80674777)
 
 ###### 7、final，finally，finalize的区别
@@ -238,11 +240,91 @@
 
 > [答案](https://www.jianshu.com/p/44790a602e11)
 
-###### 6、[Java深入源码级面试题](https://segmentfault.com/a/1190000020260377)
+###### [6、深拷贝浅拷贝认识](https://www.cnblogs.com/xingzc/p/9646923.html)
+
+
+
+###### 7、[Java深入源码级面试题](https://segmentfault.com/a/1190000020260377)
 
 
 
 ### 四、java数据结构相关
+
+      ###### 1、常用数据结构简介
+
+> 1、线性结构：
+>
+> - 数组、
+> - 链表：单链表、双向链表、循环链表
+> - 队列：普通队列、循环队列
+> - 栈。
+>
+> 2、非线性结构：
+>
+> - 树：二分搜索树、红黑树、B+树
+> - 图：无向图、有向图、
+> - 散列表：也叫作hash表
+
+###### 2、列举java的集合以及集合之间的继承关系
+
+> [答案](https://blog.csdn.net/sdhgood/article/details/38849477)
+>
+> [java容器类](http://alexyyek.github.io/2015/04/06/Collection/)
+
+###### 3、常见java集合源码分析
+
+>[1、ArrayList源码](https://mp.weixin.qq.com/s/DUzQSZ7Xd3ZaNoV98KuK0w)
+>
+>- 看扩容机制
+>- 留意增删的优缺点
+>
+>[2、LinkedList源码](https://mp.weixin.qq.com/s?__biz=MzA5MzI3NjE2MA==&mid=2650243082&idx=1&sn=3dc4afc3c8ac90d3f0e1caa6fd0e3a1c&chksm=88637165bf14f873521428d0d1340955a82a7bffbeb07b11ecaefc45853dbbbdeb7abd54cd07&mpshare=1&scene=23&srcid=02105E18wIXPxcLSZYGFNput&sharer_sharetime=1581318989456&sharer_shareid=75fd95fc5f1755aff6398892be9d7a5f#rd)
+>
+>- 增删的优缺点
+>
+>- 和数组的对比优缺点
+>
+>  ?
+>
+>###### [3、HahsMap源码](https://mp.weixin.qq.com/s?__biz=MzA5MzI3NjE2MA==&mid=2650245659&idx=1&sn=94720063a1a930918943780ca2678892&chksm=88637b74bf14f2622a62d1164dfc2ce1017ac52aaf037d6b54ae728f83d6dd15c722dee03ddb&mpshare=1&scene=23&srcid=0210vJjn1P7VQuzbeslAM28T&sharer_sharetime=1581319971413&sharer_shareid=75fd95fc5f1755aff6398892be9d7a5f#rd)
+>
+>- [hash表理解](https://blog.csdn.net/u011109881/article/details/80379505)
+>
+>
+>- 注意点：HashMap如何put数据
+>
+>- [HashMap怎么手写实现](https://www.jianshu.com/p/b638f19aeb64)
+>
+>  ?
+>
+>###### [4、LinkedHashMap源码](https://mp.weixin.qq.com/s?__biz=MzA5MzI3NjE2MA==&mid=2650247916&idx=1&sn=84de63325a65a473dad7e8e4da0abb7b&chksm=88636383bf14ea9580974420bad6056891f2037865c4e70e44058b18a23633ecd69e741a30d3&mpshare=1&scene=23&srcid=021055xlCZXlXGSOIb9gC2Q1&sharer_sharetime=1581320275129&sharer_shareid=75fd95fc5f1755aff6398892be9d7a5f#rd)
+>
+>- 主要了解使用的算法
+>- 为啥有序
+
+###### 4、二叉树的遍历
+
+> 深度优先遍历、广度优先遍历实现
+>
+> [答案：这里以二分搜索树的栗子实现下](https://blog.csdn.net/qq_38350635/article/details/87719607)
+
+###### 5、堆
+
+> [堆的了解](https://blog.csdn.net/qq_38350635/article/details/88367918)
+>
+> [二叉排序树和堆的区别](https://www.jianshu.com/p/7f92931ca87c)
+
+
+
+###### 6、红黑树、B+树认识
+
+> [1、红黑树](https://www.jianshu.com/p/e136ec79235c)
+>
+> [2、B+树](https://www.jianshu.com/p/71700a464e97)
+
+
+
+###### [7、对图的认识](https://www.cnblogs.com/polly333/p/4760275.html)
 
 
 
